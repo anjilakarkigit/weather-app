@@ -1,0 +1,43 @@
+.app {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)),url("../assests/app.jpeg");
+    background-position: bottom;
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment:fixed;
+}
+
+.app-warm{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)), url("../assests/hot.png");
+    background-position: bottom;
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment:fixed;
+}
+
+.app-cold{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)), url("../assests/cold.jpeg");
+    background-position: bottom;
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment:fixed;
+}
+
+.inputs{
+    margin-bottom:50px;
+    border: none;
+    padding: 12px;
+    width: 248px;
+    border-radius: 8px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color:blue;
+    align-content: center;
+}
+
+.inputs:focus{
+    outline: none;
+}
+
