@@ -6,15 +6,15 @@ import {getNewDate} from './components/date'
 import "./components/app.css"; 
 
 
-
 function App() {
-   const apiKey = '8bb7846273347ac278873aa9b41eb528'
    const [weatherData, setWeatherData] = useState([{}])
    const [city, setCity] = useState('')
+   const API_KEY = '8bb7846273347ac278873aa9b41eb528'
+
 
    const getWeather =  event => {
      if(event.key === 'Enter')
-           fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`).then(
+           fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`).then(
            response => response.json()
        ).then(
          data =>{
@@ -32,39 +32,41 @@ function App() {
    <main>
       <CssBaseline />
         <Grid container direction="column" justifyContent="center" alignItems="center" className={classes.grid} >
-        <Typography variant="h5" className={classes.typo}>Weather Indicator</Typography>
-      
+        
         <input type="text" 
-              placeholder="Search.."
+              placeholder="Search for a city..."
               className="inputs"
               onChange={e=>setCity(e.target.value)}
               value={city}
               onKeyPress={getWeather}
         />
 
-        <Typography variant="h5" className={classes.typos}>{getNewDate(new Date())}</Typography>
+        
 
         {(weatherData.cod === '404')?(
-          <Typography variant="h4" className={classes.typos}>No city found. Maybe try just putting the city name?</Typography>
+          <Typography variant="h5" className={classes.typos}>No city found. Maybe try just putting the city name?</Typography>
         ) : ('')
         }
 
         <br></br>
 
-        {typeof weatherData.main === 'undefined' ? (
-       <div>
-        <Typography variant="h6" className={classes.typos}>Welcome to the weather indicator! Please enter the name of city.</Typography>
-      </div> 
+        {typeof weatherData.main !== 'undefined' ? (
+          <div>
+        <Typography variant="h5" className={classes.country}>{weatherData.name},{weatherData.sys.country}</Typography>
+        <br/>
+        <Typography variant="h5" className={classes.date}>{getNewDate(new Date())}</Typography>
+        <br/>
+        <Typography variant="h5" className={classes.temp}>Temp:{Math.round(weatherData.main.temp)}{` °F`}</Typography>
+        <br/>
+        <Typography variant="h5" className={classes.tempFeel}>Feels Like:{weatherData.main.feels_like}{` °F`}</Typography>
+        <br/>
+        <Typography variant="h4" className={classes.clouds}>{weatherData.weather[0].main}</Typography>
+      </div>
     ):(
       <div>
-        <Typography variant="h5" color="secondary" className={classes.typos}>{weatherData.name},{weatherData.sys.country}</Typography>
-        <br/>
-        <Typography variant="h5" className={classes.typos}>Temp:{Math.round(weatherData.main.temp)}{` F`}</Typography>
-        <br/>
-        <Typography variant="h5" className={classes.typos}>Feels Like:{weatherData.main.feels_like}{` F`}</Typography>
-        <br/>
-        <Typography variant="h4" className={classes.typos}>{weatherData.weather[0].main}</Typography>
-      </div>
+        <Typography variant="h5" className={classes.date}>{getNewDate(new Date())}</Typography>
+        <Typography variant="h5" className={classes.name}>Weather Indicator</Typography>
+      </div> 
     )}
         </Grid>
     </main> 
