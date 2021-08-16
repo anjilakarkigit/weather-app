@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useStyles from './styles';
-import { Grid, Typography} from '@material-ui/core';
+import { Grid, Input, Typography} from '@material-ui/core';
 import {getNewDate} from './components/date'
 import "./components/app.css"; 
 
@@ -33,9 +33,9 @@ function App() {
       <CssBaseline />
         <Grid container direction="column" justifyContent="center" alignItems="center" className={classes.grid} >
         
-        <input type="text" 
+        <Input type="text" 
               placeholder="Search for a city..."
-              className="inputs"
+              className={classes.inputs}
               onChange={e=>setCity(e.target.value)}
               value={city}
               onKeyPress={getWeather}

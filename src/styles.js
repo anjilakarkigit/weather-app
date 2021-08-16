@@ -65,6 +65,19 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "10px",
       cursor: 'pointer'
     }
+  },
+  inputs:{
+    '&&':{   
+    margin: '50px',
+    border: 'none',
+    padding: '12px',
+    width: '20em',
+    height: '3em',
+    borderRadius: '8px',
+    fontSize: '18px',
+    letterSpacing: '2px',
+    color: 'black',
+    }
   }
 })
 );

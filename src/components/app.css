@@ -25,24 +25,7 @@
     background-attachment:fixed;
 }
 
-.inputs{
-    margin:50px;
-    border: none;
-    padding: 12px;
-    width: 25em;
-    height: 3em;
-    border-radius: 8px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    color: black;
-    font-weight: 300;
-    font-family:sans-serif;
-    align-content: center;
-}
 
-.inputs:focus{
-    outline: none;
-}
 
 
 
